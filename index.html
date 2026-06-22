@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nges Brian Njungle | Academic Portfolio</title>
+    <style>
+        /* Academic & Professional CSS Variables */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-main: #202124;
+            --text-muted: #4d5156;
+            --accent-color: #1a365d; 
+            --accent-hover: #2b6cb0;
+            --border-light: #dadce0;
+            --transition: all 0.2s ease;
+            --btn-text: #ffffff;
+        }
+
+        /* Dark Mode Theme Variables */
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-color: #64b5f6; 
+            --accent-hover: #90caf9;
+            --border-light: #333333;
+            --btn-text: #121212;
+        }
+
+        /* Global Styles & Typography */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Serif for Headings */
+        h1, h2, h3, h4 {
+            font-family: 'Georgia', 'Times New Roman', Times, serif;
+            font-weight: 600;
+            color: var(--accent-color);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--bg-primary);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            font-family: 'Georgia', serif;
+            color: var(--accent-color);
+            order: 1;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            align-items: center;
+            order: 2;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Controls: Theme & Hamburger Menu */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            order: 3;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-main);
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-main);
+            padding: 0;
+        }
+
+        /* Layout Containers */
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-alt {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 3rem;
+            padding-bottom: 1rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-main);
+        }
+
+        .location {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            max-width: 600px;
+        }
+
+        .hero-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid var(--border-light);
+            box-shadow: 4px 4px 0px var(--border-light);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--btn-text) !important;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            text-decoration: none;
+        }
+
+        /* Grid Layouts (Projects) */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0; 
+            padding: 1rem 0;
+        }
+
+        .card {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin: 0.6rem; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04); 
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--border-light);
+            text-decoration: none;
+        }
+
+        /* Academic Lists */
+        .academic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .academic-list li {
+            margin-bottom: 1.2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border-light);
+        }
+
+        .list-date {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* Other Experience Side-by-Side Layout */
+        .other-exp-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .other-exp-item {
+            display: flex;
+            gap: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .other-exp-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .other-exp-date {
+            flex: 0 0 140px;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding-top: 0.2rem;
+        }
+
+        .other-exp-content {
+            flex: 1;
+        }
+
+        .other-exp-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+        
+        .other-exp-org {
+            font-style: italic;
+            color: var(--accent-color);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .other-exp-org a {
+            color: inherit;
+        }
+
+        .other-exp-desc {
+            font-size: 0.95rem;
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* Grouped Awards Layout */
+        .award-group {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--border-light);
+        }
+        .award-item {
+            margin-bottom: 0.8rem;
+        }
+        .award-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 1rem;
+        }
+
+        /* Footer / Contact */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .grid-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation Overrides */
+            nav {
+                display: none; 
+                order: 4;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+            nav.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block; 
+            }
+            .logo {
+                order: 1;
+            }
+            .header-controls {
+                order: 2;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+            }
+            .hero-img {
+                width: 180px;
+                height: 180px;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .other-exp-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .other-exp-date {
+                flex: none;
+                padding-top: 0;
+                color: var(--accent-color);
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                margin: 0.8rem 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Nges Brian</a>
+        <div class="header-controls">
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark Mode" id="theme-btn">🌙</button>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+        </div>
+        <nav id="nav-menu">
+            <a href="#about">About</a>
+            <a href="#news">News</a>
+            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#experience">Experience</a>
+            <a href="#awards">Awards</a>
+            <a href="#community">Community</a>
+            <a href="#contact">Contact</a>
+            <a href="CV.pdf" target="_blank" style="font-weight: 700;">Resume</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about" class="hero">
+            <div class="hero-text">
+                <h1>Nges Brian Njungle</h1>
+                <!-- <span class="location">Tempe, Arizona</span> -->
+                
+                <p>Passionate about applied cryptography, formal methods, privacy-preserving computations, and  security. Building scalable, performance-efficient secure systems that bridge security theories and real-world constraints.</p>
+                
+                <p style="margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--border-light);">I am currently a Ph.D. Candidate in Computer Engineering at <a href="https://www.asu.edu/" target="_blank" style="font-weight: 500;">Arizona State University</a> (Aug 2023 - Present). I also hold a Master of Business Administration from the <a href="https://www.uopeople.edu/" target="_blank" style="font-weight: 500;">University of the People, Pasadena, California</a> (2021 - 2023) and a Bachelor of Engineering in Computer Engineering from the <a href="https://www.ubuea.cm/" target="_blank" style="font-weight: 500;">University of Buea</a> (2014 - 2018).</p>
+                
+                <div style="margin-top: 1.5rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <a href="CV.pdf" target="_blank" class="btn" style="color: white;">View Resume (PDF)</a>
+                    <a href="https://github.com/ngesbrian" target="_blank" style="font-size: 0.95rem; font-weight: 500;">GitHub</a>
+                    <a href="https://x.com/ngesbrian" target="_blank" style="font-size: 0.95rem; font-weight: 500;">X</a>
+                    <a href="https://www.linkedin.com/in/nges-brian-6aba38111/" target="_blank" style="font-size: 0.95rem; font-weight: 500;">LinkedIn</a>
+                    <a href="https://scholar.google.com/citations?user=sv5GKp0AAAAJ&hl=en&oi=ao" target="_blank" style="font-size: 0.95rem; font-weight: 500;">Google Scholar</a>
+                </div>
+            </div>
+            <img src="nnjungle@asu.edu-1.jpg" alt="Nges Brian Njungle" class="hero-img">
+        </section>
+    </div>
+
+    <div class="section-alt">
+        <div class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+            <section id="news">
+                <h2 class="section-title">Recent News</h2>
+                <ul class="academic-list">
+                    <li>
+                        <span class="list-date">2027</span>
+                        <span style="color: var(--text-main);">Invited as a reviewer for Proceedings on Privacy Enhancing Technologies Symposium (PoPETS/PETS'27) 2027.</span>
+                    </li>
+                    <li>
+                        <span class="list-date">June 2026</span>
+                        <span style="color: var(--text-main);">FHEON accepted for publication at Proceedings on Privacy Enhancing Technologies Symposium (PoPETS/PETS'26) 2026.</span>
+                    </li>
+                    <li>
+                        <span class="list-date">May 2026</span>
+                        <a href="https://stamcenter.asu.edu/2026/05/stam-center-celebrates-student-research-leads-on-major-phd-milestones/" target="_blank" style="color: var(--text-main);">Celebrated by the STAM Center for reaching major Ph.D. milestones as a student research lead.</a>
+                    </li>
+                    <li>
+                        <span class="list-date">May 2025</span>
+                        <a href="https://news.asu.edu/20250522-science-and-technology-stopping-silent-snitches-smart-world" target="_blank" style="color: var(--text-main);">Featured in ASU News for collaborative research on securing batteryless smart devices using cryptographic keys.</a>
+                    </li>
+                    <li>
+                        <span class="list-date">September 2024</span>
+                        <a href="https://blog.thenewcenturyschool.com/2024/09/27/immersed-interviews-computer-engineer-and-so-much-more-nges-brian/" target="_blank" style="color: var(--text-main);">Interviewed by The New Century School's "Immersed" blog about my Ph.D. journey and research in secure AI.</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="projects" style="margin-top: 2rem; padding-top: 1rem; margin-bottom: 4rem;">
+            <h2 class="section-title">Relevant Projects</h2>
+            <div class="grid-cards">
+                
+                <div class="card">
+                    <h3>FHEON</h3>
+                    <p>Configurable framework for developing privacy-preserving neural networks using Homomorphic Encryption.</p>
+                    <div>
+                        <a href="https://github.com/stamcenter/fheon" target="_blank" class="tag">GitHub</a>
+                        <a href="https://fheon.pqcsecure.org" target="_blank" class="tag">Website</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Sentinel Touch</h3>
+                    <p>Lightweight privacy-preserving biometric-fingerprinting authentication and identification system based on neural networks and Homomorphic Encryption.</p>
+                    <div>
+                        <a href="https://github.com/stamcenter/sentineltouch" target="_blank" class="tag">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>VIPER</h3>
+                    <p>Verifiable Private Information Retrieval system enforcing privacy and data integrity efficiently.</p>
+                    <div>
+                        <a href="https://www.pqcsecure.org/pir.html" target="_blank" class="tag">Website</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Faster Crystals</h3>
+                    <p>Optimized PQC primitives (ML-KEM and ML-DSA) for high-performance execution across NIST FIPS security levels. Developed co-design architectures achieving up to 60% performance improvements.</p>
+                    <div>
+                        </div>
+                </div>
+                
+                <div class="card">
+                    <h3>AMAZE</h3>
+                    <p>Accelerated MiMC Hardware Architecture for Zero-Knowledge on the Edge. Finalist for Top Picks in Hardware and Embedded Security 2025.</p>
+                    <div>
+                        <a href="https://github.com/ACES-STAM/AMAZE" target="_blank" class="tag">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>FAVE</h3>
+                    <p>Constant-Time and Memory Safety Binary Analysis Tool. Proposed a new approach for constant-time verification based on low-level instruction traces to detect timing side-channels.</p>
+                    <div>
+                        </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div class="section-alt">
+        <div class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+            <section id="publications">
+                <h2 class="section-title">Selected Research Publications</h2>
+                <ul class="academic-list">
+                    <li>
+                        <span class="pub-title">FHEON: A Configurable Framework for Developing Privacy-Preserving Neural Networks Using Homomorphic Encryption</span><br>
+                        Nges Brian Njungle, Eric Jahns, Michel A. Kinsy.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Proceedings on Privacy Enhancing Technologies Symposium (PoPETS/PETS'26) 2026, Issue 4.</span> 
+                        <a href="https://arxiv.org/abs/2510.03996" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[PDF]</a>
+                    </li>
+                    <li>
+                        <span class="pub-title">SentinelTouch: A Lightweight Privacy-Preserving Biometric-Fingerprinting Authentication and Identification System Based on Neural Networks and Homomorphic Encryption</span><br>
+                        Nges Brian Njungle, Eric Jahns, Mishel Jyothis Paul, Michel A. Kinsy.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Proceedings on Privacy Enhancing Technologies Symposium (PoPETS/PETS'26) 2026, Issue 2.</span>
+                        <a href="https://petsymposium.org/popets/2026/popets-2026-0041.pdf" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[PDF]</a>
+                    </li>
+                    <li>
+                        <span class="pub-title">PrivSpike: A Privacy-Preserving Inference Framework for Deep Spiking Neural Networks using Homomorphic Encryption</span><br>
+                        Nges Brian Njungle, Eric Jahns, Milan Stojkov, Michel A. Kinsy.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Applied Cryptography and Network Security (ACNS'26), Issue 1, 2026.</span>
+                        <a href="https://arxiv.org/abs/2510.03995" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[PDF]</a>
+                    </li>
+                    <li>
+                        <span class="pub-title">Gotta Hash 'Em All! Speeding Up Hash Functions for Zero-Knowledge Proof Applications</span><br>
+                        Nojan Sheybani, Tengkai Gong, Anees Ahmed, Nges Brian Njungle, Michel A. Kinsy, Farinaz Koushanfar.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Proceedings of the 44th IEEE/ACM International Conference on Computer-Aided Design (ICCAD'25), 2025.</span>
+                        <a href="https://arxiv.org/abs/2501.18780" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[PDF]</a>
+                    </li>
+                    <li>
+                        <span class="pub-title">Activate Me!: Designing Efficient Activation Functions for Privacy-Preserving Machine Learning with Fully Homomorphic Encryption</span><br>
+                        Nges Brian Njungle, Michel A. Kinsy.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">International Conference on Cryptology in Africa (AFRICACRYPT'25), Cham: Springer Nature Switzerland, 2025.</span>
+                        <a href="https://www.springerprofessional.de/en/activate-me-designing-efficient-activation-functions-for-privacy/51221144" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[Link]</a>
+                    </li>
+                    <li>
+                        <span class="pub-title">AMAZE: Accelerated MiMC Hardware Architecture for Zero-Knowledge on the Edge</span><br>
+                        Anees Ahmed, Nojan Sheybani, Davi Moreno, Nges Brian Njungle, Tengkai Gong, Michel Kinsy, Farinaz Koushanfar.<br>
+                        <span style="color: var(--text-muted); font-style: italic; font-size: 0.95rem;">Proceedings of the 43rd IEEE/ACM International Conference on Computer-Aided Design (ICCAD'24)</span>
+                        <a href="https://arxiv.org/abs/2411.06350" target="_blank" style="margin-left: 8px; font-weight: 600; font-size: 0.85rem;">[PDF]</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="experience">
+            <h2 class="section-title">Other Selected Experiences</h2>
+            
+            <div class="other-exp-container">
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Aug 2025 — Present</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">Laboratory Lead</div>
+                        <div class="other-exp-org"><a href="https://stamcenter.asu.edu/ascs-lab/" target="_blank">Adaptive & Secure Computing Systems (ASCS) Lab | STAM Center</a></div>
+                        <p class="other-exp-desc">Recruit and mentor students, guide research, coordinate activities, and contribute to white papers.</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Aug 2023 — Present</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">PhD Candidate - Computer Engineering (Secure Systems Design and Development)</div>
+                        <div class="other-exp-org"><a href="https://www.asu.edu/" target="_blank">Arizona State University</a> (Advisor: Prof. Michel Kinsy)</div>
+                        <p class="other-exp-desc">Conduct research on secure and privacy-preserving technologies, focusing on cryptographic algorithms, heterogeneous computing domains, and formal verification.</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Jan 2023 — Aug 2023</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">Data Scientist</div>
+                        <div class="other-exp-org">Biosfera360, Maryland, United States</div>
+                        <p class="other-exp-desc">Designed and implemented machine learning models to analyze and predict desertification on geo-spatial trends.</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Oct 2019 — Nov 2019</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">Software Engineer Intern</div>
+                        <div class="other-exp-org">BlackHorse Solutions, Virginia, USA</div>
+                        <p class="other-exp-desc">Prototyped quantum-safe cryptographic primitives and integrated them into security-centric systems.</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Sept 2016 — Sept 2023</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">Co-Founder & CEO</div>
+                        <div class="other-exp-org"><a href="https://www.abeboh.org/site/team" target="_blank">ABEBOH LLC, Buea and Douala, Cameroon</a></div>
+                        <p class="other-exp-desc">Spearheaded the design and delivery of client and in-house tech solutions, including a multi-award-winning music social media platform serving 30,000+ users.</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Mar 2016 — Aug 2016</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title"><a href="https://summerofcode.withgoogle.com/archive/2016/projects/6741911901569024" target="_blank" style="color: var(--text-main);">GSoC Intern</a></div>
+                        <div class="other-exp-org">Google / Apache Software Foundation, USA</div>
+                        <p class="other-exp-desc">Developed unit tests and the regression testing suite for the open-source Mynewt Operating System (IoT-OS).</p>
+                    </div>
+                </div>
+
+                <div class="other-exp-item">
+                    <div class="other-exp-date">Spring 2026</div>
+                    <div class="other-exp-content">
+                        <div class="other-exp-title">Co-Instructor & Teaching Assistant</div>
+                        <div class="other-exp-org"><a href="https://scai.engineering.asu.edu/" target="_blank">SCAI, Arizona State University</a></div>
+                        <p class="other-exp-desc">Co-Instructor for Hardware Security & Trust (CSE/CEN 598). TA for Advanced OS (CSE 536) and Introduction to Programming Languages (CSE 240).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="section-alt">
+        <div class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+            <div class="two-col">
+                <section id="awards">
+                    <h2 class="section-title">Awards & Honors</h2>
+                    
+                    <div class="award-group">
+                        <span class="list-date">2025</span>
+                        <div class="award-item">
+                            <strong>Finalist, Top Picks in Hardware and Embedded Security</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">Project: AMAZE</span>
+                        </div>
+                    </div>
+
+                    <div class="award-group">
+                        <span class="list-date">2018</span>
+                        <div class="award-item">
+                            <strong>Shortlist, African Prize for Engineering and Innovation</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">Project: <a href="https://muzikol.com/" target="_blank">Muzikol</a></span>
+                        </div>
+                        <div class="award-item">
+                            <strong>Pitch at Palace Africa</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">Project: <a href="https://muzikol.com/" target="_blank">Muzikol</a></span>
+                        </div>
+                        <div class="award-item">
+                            <strong>Semi-Finalist, World Summit Young Innovator Award</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);">Project: Health Corner</span>
+                        </div>
+                    </div>
+
+                    <div class="award-group">
+                        <span class="list-date">2017</span>
+                        <div class="award-item">
+                            <strong>Winner, Best Innovation</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);"><a href="https://arreyb.com/complete-list-of-winners-into-the-bdma-2017-awards-first-on-arreyb/" target="_blank">Bonteh Digital Media Awards (BDMA)</a></span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section id="community">
+                    <h2 class="section-title">Community Engagement</h2>
+                    <ul class="academic-list">
+                        <li>
+                            <span class="list-date">Reviewer</span>
+                            <strong>Proceedings on Privacy Enhancing Technologies Symposium (PoPETS/PETS'27) 2027</strong><br>
+                        </li>
+                        <li>
+                            <span class="list-date">Active Contributor</span>
+                            <strong>FHE ML inference Benchmarking Suite (Harness)</strong><br>
+                            <a href="https://github.com/fhe-benchmarking/ml-inference" target="_blank" style="font-size: 0.9rem;">https://github.com/fhe-benchmarking/ml-inference</a>
+                        </li>
+                        <li>
+                            <span class="list-date">2020 - 2021</span>
+                            <strong>President</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);"><a href="https://muzikolmusicawards.com/" target="_blank">Muzikol Music Awards (MUMA)</a></span>
+                        </li>
+                        <li>
+                            <span class="list-date">2015 - 2018</span>
+                            <strong>Campus Advisory Council Member, Regional Ambassador Lead for Africa & Mozilla Rep</strong><br>
+                            <span style="font-size: 0.9rem; color: var(--text-muted);"><a href="https://mozilla.github.io/reps-archive/u/ngesb/index.html" target="_blank">Mozilla</a></span>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <h2 class="section-title" style="border: none; margin-bottom: 1rem;">Contact</h2>
+        <p style="font-size: 1.05rem; margin-bottom: 1.5rem;">I am always open to discussing research, engineering projects, or new opportunities.</p>
+        
+        <span style="font-weight: 500; font-size: 1.1rem; color: var(--text-main); display: block; margin-bottom: 1rem;">Email: nges&lt;dot&gt;brian&lt;@&gt;gmail&lt;dot&gt;com</span>
+        
+        <p style="font-size: 0.85rem; margin-top: 3rem;">&copy; 2026 Nges Brian Njungle</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Dark Mode Toggle Logic
+        function toggleTheme() {
+            const body = document.documentElement;
+            const currentTheme = body.getAttribute('data-theme');
+            const toggleBtn = document.getElementById('theme-btn');
+            
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                toggleBtn.textContent = '🌙';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.textContent = '☀️';
+            }
+        }
+
+        // Apply saved theme on initial load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.addEventListener("DOMContentLoaded", () => {
+                document.getElementById('theme-btn').textContent = '☀️';
+            });
+        }
+    </script>
+
+</body>
+</html>
